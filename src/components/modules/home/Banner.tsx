@@ -2,13 +2,12 @@ import Image from "next/image";
 import img1 from "../../../app/assests/img/pro1.png";
 import img2 from "../../../app/assests/img/img-2.jpg";
 import { TextAnimate } from "@/components/magicui/text-animate";
-
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 
 const Banner = () => {
   return (
-    <div className=" overflow-x-hidden text-white">
+    <div className=" overflow-x-hidden text-white ">
       <div className="relative h-[80vh] w-screen text-white ">
         <Image src={img2} priority={true} fill alt="BannerImg"></Image>
         <div className="absolute top-[40%]  left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center">
@@ -29,14 +28,14 @@ const Banner = () => {
             </div>
 
             <TextAnimate
-              className="text-purple-400 text-xs md:text-lg lg:text-4xl "
+              className="text-purple-400 text-2xl md:text-5xl "
               animation="slideLeft"
               by="character"
             >
               Md.Shariufl islam
             </TextAnimate>
             <TextAnimate
-              className="text-white text-xs md:text-lg lg:text-4xl "
+              className="text-gray-300 text-lg sm:text-4xl "
               animation="slideLeft"
               by="character"
             >
@@ -49,7 +48,7 @@ const Banner = () => {
             >
               Student of Programming Hero
             </TextAnimate>
-            <Button className=" mt-5 bg-purple-600 hover:bg-purple-700 cursor-pointer">
+            <Button className=" mt-5 bg-purple-500 hover:bg-purple-600 cursor-pointer">
               <Download /> Download CV
             </Button>
           </div>

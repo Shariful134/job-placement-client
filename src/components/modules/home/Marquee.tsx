@@ -83,7 +83,7 @@ const ReviewCard = ({
   return (
     <figure
       className={cn(
-        "relative h-[90px] md:h-full p-4 w-64 cursor-pointer overflow-hidden overflow-x-hidden rounded-xl border border-dashed border-purple-500 "
+        "relative  h-[90px] md:h-full p-4 w-64 cursor-pointer overflow-hidden overflow-x-hidden rounded-xl border border-dashed border-purple-500 "
       )}
     >
       <div className="flex flex-row items-center gap-2">
