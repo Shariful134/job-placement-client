@@ -4,28 +4,22 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../app/assests/img/web.png";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { logout } from "@/app/services/auth";
 import Loading from "./Loading";
 
 export const protectedRoutes = ["/admin", "/admin/:page"];
 
 const NavBar = () => {
-  const { user, isLoading, setIsLoading } = useUser();
+  const { user, isLoading } = useUser();
   const pathname = usePathname();
-  const router = useRouter();
 
   const handleLogOut = async () => {
-    setIsLoading(true);
     await logout();
-    if (protectedRoutes.some((route) => pathname.match(route))) {
-      router.push("/");
-      setIsLoading(false);
-    } else {
-      router.push("/login");
-    }
-    setIsLoading(false);
+
+    window.location.reload();
   };
+
   if (isLoading) {
     return <Loading />;
   }

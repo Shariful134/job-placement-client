@@ -13,7 +13,7 @@ export function About() {
           </BoxReveal>
           <BoxReveal boxColor={"#AD46FF"} duration={0.5}>
             <p className="text-lg text-gray-300 text-center max-w-2xl">
-              I'm a dedicated Full Stack Developer with nearly 3 years of
+              I am a dedicated Full Stack Developer with nearly 3 years of
               experience in coding and learning modern web technologies. Over
               the years, coding has grown from a skill into a true passion for
               me. I find joy in solving problems, building meaningful projects,

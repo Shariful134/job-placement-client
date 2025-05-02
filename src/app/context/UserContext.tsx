@@ -22,17 +22,20 @@ const UserProviders = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
 
   const [ratings, setRatings] = useState<number | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleUser = async () => {
-    const user = await getCurrentUser();
-    setUser(user);
-    setIsLoading(false);
-  };
+  const [isLoading, setIsLoading] = useState(false);
+  console.log("isLoading: ", isLoading);
+  console.log("user: ", user);
 
   useEffect(() => {
-    handleUser();
-  }, [isLoading]);
+    const handleUser = async () => {
+      const user = await getCurrentUser();
+      setUser(user);
+      setIsLoading(false);
+    };
+    if (!user) {
+      handleUser();
+    }
+  }, [isLoading, user]);
 
   return (
     <UserContext.Provider

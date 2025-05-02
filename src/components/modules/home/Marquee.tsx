@@ -1,5 +1,6 @@
 import { Marquee } from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
+import Image from "next/image"; // ✅ Added for next/image
 
 const reviews = [
   {
@@ -87,11 +88,11 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img
-          width={100}
+        <Image
+          width={300}
           height={100}
-          className="w-[300px] h-[100px] object-cover rounded "
-          alt=""
+          className="w-[300px] h-[100px] object-cover rounded"
+          alt="Tech Logo"
           src={img}
         />
       </div>

@@ -17,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { loginUser } from "@/app/services/auth";
 import { toast } from "sonner";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useUser } from "@/app/context/UserContext";
 
 const formSchema = z.object({
@@ -33,8 +33,6 @@ const formSchema = z.object({
 });
 
 export function LoginForm() {
-  const searchparams = useSearchParams();
-  const redirect = searchparams.get("redirectPath");
   const router = useRouter();
 
   const { setIsLoading } = useUser();
@@ -62,15 +60,15 @@ export function LoginForm() {
       console.log(res);
       if (res?.success) {
         toast.success(res?.message);
-        if (redirect) {
-          router.push(redirect);
-        } else {
-          router.push("/");
-        }
-        setIsLoading(false);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+
+        router.push("/");
       } else toast.error(res?.message);
     } catch (error) {
       console.log(error);
+    } finally {
       setIsLoading(false);
     }
   };

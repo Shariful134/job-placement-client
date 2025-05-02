@@ -3,6 +3,7 @@
 import { cookies } from "next/headers";
 import { FieldValues } from "react-hook-form";
 import { jwtDecode } from "jwt-decode";
+import { revalidatePath } from "next/cache";
 
 export const registerStudent = async (userData: FieldValues) => {
   try {
@@ -28,6 +29,11 @@ export const loginUser = async (userData: FieldValues) => {
       headers: {
         "Content-Type": "application/json",
       },
+
+      next: {
+        tags: ["user"],
+      },
+
       body: JSON.stringify(userData),
     });
 
@@ -35,7 +41,7 @@ export const loginUser = async (userData: FieldValues) => {
     console.log(result);
 
     if (result.success) {
-      (await cookies()).set("accessToken", result.data.accessToken);
+      (await cookies()).set("accessToken", result?.data?.accessToken);
     }
     return result;
   } catch (error: any) {
@@ -46,9 +52,10 @@ export const loginUser = async (userData: FieldValues) => {
 export const getCurrentUser = async () => {
   const accessToken = (await cookies()).get("accessToken")?.value;
   let decodedData = null;
-
+  console.log("accessToken :", accessToken);
   if (accessToken) {
     decodedData = await jwtDecode(accessToken);
+    revalidatePath("/");
     return decodedData;
   } else {
     return null;
