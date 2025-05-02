@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { getCurrentUser } from "../services/auth";
-
 export interface IUser {
   name: string;
   userEmail: string;
@@ -8,7 +7,6 @@ export interface IUser {
   exp: number;
   iat: number;
 }
-
 interface IUserProviderValue {
   user: IUser | null;
   isLoading: boolean;
@@ -27,16 +25,14 @@ const UserProviders = ({ children }: { children: React.ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleUser = async () => {
-    setIsLoading(true);
     const user = await getCurrentUser();
-    console.log("userContext :", user);
     setUser(user);
     setIsLoading(false);
   };
 
   useEffect(() => {
     handleUser();
-  }, []);
+  }, [isLoading]);
 
   return (
     <UserContext.Provider

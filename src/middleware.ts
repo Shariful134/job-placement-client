@@ -34,24 +34,12 @@ export const middleware = async (request: NextRequest) => {
     }
   }
 
-  if (pathname.startsWith("/dashboard") && userInfo.role !== "student") {
+  if (pathname.startsWith("/dashboard") && userInfo.role !== "user") {
     return NextResponse.redirect(new URL("/login", request.url));
   }
   return NextResponse.redirect(new URL("/", request.url));
 };
 
 export const config = {
-  matcher: [
-    "/create-shop",
-    "/admin",
-    "/admin/:path*",
-    "/user",
-    "/user/:path*",
-    "/student",
-    "/student/:path*",
-    "/tutor",
-    "/tutor/:path*",
-    "/booking",
-    "/booking/:path*",
-  ],
+  matcher: ["/admin", "/admin/:path*", "/user/:path*"],
 };

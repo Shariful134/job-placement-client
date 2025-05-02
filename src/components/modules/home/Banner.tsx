@@ -48,6 +48,7 @@ const Banner = () => {
             >
               Student of Programming Hero
             </TextAnimate>
+
             <Button className=" mt-5 bg-purple-500 hover:bg-purple-600 cursor-pointer">
               <Download /> Download CV
             </Button>

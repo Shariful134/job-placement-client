@@ -15,9 +15,10 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-import { login } from "@/app/services/auth";
+import { loginUser } from "@/app/services/auth";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useUser } from "@/app/context/UserContext";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -32,7 +33,11 @@ const formSchema = z.object({
 });
 
 export function LoginForm() {
+  const searchparams = useSearchParams();
+  const redirect = searchparams.get("redirectPath");
   const router = useRouter();
+
+  const { setIsLoading } = useUser();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,16 +57,21 @@ export function LoginForm() {
       role: "user",
     };
     try {
-      const res = await login(userData);
-      console.log("res: ", res);
+      const res = await loginUser(userData);
+      setIsLoading(true);
+      console.log(res);
       if (res?.success) {
         toast.success(res?.message);
-        router.push("/");
-      } else {
-        toast.error(res?.message);
-      }
-    } catch (error: any) {
+        if (redirect) {
+          router.push(redirect);
+        } else {
+          router.push("/");
+        }
+        setIsLoading(false);
+      } else toast.error(res?.message);
+    } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 

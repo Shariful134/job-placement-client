@@ -6,28 +6,29 @@ import Link from "next/link";
 import logo from "../../../app/assests/img/web.png";
 import { usePathname, useRouter } from "next/navigation";
 import { logout } from "@/app/services/auth";
+import Loading from "./Loading";
 
-export const protectedRoutes = [
-  "/create-shop",
-  "/admin",
-  "/admin/:page",
-  "/user",
-  "/user/:page",
-];
+export const protectedRoutes = ["/admin", "/admin/:page"];
 
 const NavBar = () => {
-  const { user, setIsLoading } = useUser();
-  console.log(user?.role);
+  const { user, isLoading, setIsLoading } = useUser();
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleLogOut = () => {
-    logout();
+  const handleLogOut = async () => {
     setIsLoading(true);
+    await logout();
     if (protectedRoutes.some((route) => pathname.match(route))) {
       router.push("/");
+      setIsLoading(false);
+    } else {
+      router.push("/login");
     }
+    setIsLoading(false);
   };
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="bg-purple-500 shadow-sm sticky  top-0 z-50">
@@ -56,21 +57,65 @@ const NavBar = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                <Link
+                  className={
+                    pathname == "/"
+                      ? "bg-gray-100/25 text-lg font-semibold"
+                      : "text-lg font-semibold"
+                  }
+                  href={"/"}
+                >
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  className={
+                    pathname == "/skils"
+                      ? "bg-gray-100/25 text-lg font-semibold"
+                      : "text-lg font-semibold"
+                  }
+                  href={"/skils"}
+                >
+                  Skils
+                </Link>
               </li>
               <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+                <Link
+                  className={
+                    pathname == "/contact"
+                      ? "bg-gray-100/25 text-lg font-semibold"
+                      : "text-lg font-semibold"
+                  }
+                  href={"/contact"}
+                >
+                  Contact
+                </Link>
               </li>
               <li>
-                <a>Item 3</a>
+                <Link
+                  className={
+                    pathname == "/about"
+                      ? "bg-gray-100/25 text-lg font-semibold"
+                      : "text-lg font-semibold"
+                  }
+                  href={"/about"}
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className={
+                    pathname == "/blog"
+                      ? "bg-gray-100/25 text-lg font-semibold"
+                      : "text-lg font-semibold"
+                  }
+                  href={"/blog"}
+                >
+                  Blog
+                </Link>
               </li>
             </ul>
           </div>
@@ -145,7 +190,7 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end pb-0 mb-0">
-          {user?.role ? (
+          {user ? (
             <>
               {user?.role == "user" && (
                 <div className="dropdown dropdown-end">
@@ -154,7 +199,7 @@ const NavBar = () => {
                     role="button"
                     className="btn btn-ghost btn-circle avatar "
                   >
-                    <div className="w-10 rounded-full border border-whtie">
+                    <div className="w-15 rounded-full border border-whtie">
                       <Avatar>
                         <AvatarImage
                           src="https://i.postimg.cc/cJ2f9Sbj/Screenshot-79.png"
@@ -190,7 +235,7 @@ const NavBar = () => {
                     role="button"
                     className="btn btn-ghost btn-circle avatar "
                   >
-                    <div className="w-10 rounded-full border border-whtie">
+                    <div className="w-15 rounded-full border border-whtie">
                       <Avatar>
                         <AvatarImage
                           src="https://i.postimg.cc/cJ2f9Sbj/Screenshot-79.png"
@@ -214,7 +259,7 @@ const NavBar = () => {
                       <a>Settings</a>
                     </li>
                     <li>
-                      <a>Logout</a>
+                      <button onClick={handleLogOut}>logout</button>
                     </li>
                   </ul>
                 </div>

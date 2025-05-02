@@ -21,8 +21,7 @@ export const registerStudent = async (userData: FieldValues) => {
   }
 };
 
-export const login = async (userData: FieldValues) => {
-  console.log(userData);
+export const loginUser = async (userData: FieldValues) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`, {
       method: "POST",
@@ -46,7 +45,6 @@ export const login = async (userData: FieldValues) => {
 
 export const getCurrentUser = async () => {
   const accessToken = (await cookies()).get("accessToken")?.value;
-  console.log("accessToken: ", accessToken);
   let decodedData = null;
 
   if (accessToken) {
