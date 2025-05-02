@@ -127,7 +127,7 @@ export function LoginForm() {
             className="roudend-full cursor-pointer border-0 bg-gray-300 text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ..."
             type="submit"
           >
-            {isSubmitting ? "Registering..." : "Register"}
+            {isSubmitting ? "Login..." : "Login"}
           </Button>
         </form>
       </Form>

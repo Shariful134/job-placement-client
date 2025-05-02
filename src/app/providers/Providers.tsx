@@ -1,9 +1,10 @@
-// "use client";
-// import UserProviders from "@/context/UserContext";
-// import React from "react";
+"use client";
 
-// const Providers = ({ children }: { children: React.ReactNode }) => {
-//   return <UserProviders>{children}</UserProviders>;
-// };
+import React from "react";
+import UserProviders from "../context/UserContext";
 
-// export default Providers;
+const Providers = ({ children }: { children: React.ReactNode }) => {
+  return <UserProviders>{children}</UserProviders>;
+};
+
+export default Providers;

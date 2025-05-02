@@ -70,7 +70,7 @@ const reviews = [
   },
 ];
 
-const firstRow = reviews.slice(0, reviews.length / 2);
+const firstRow = reviews.slice(0, reviews.length - 1);
 
 const ReviewCard = ({
   img,
@@ -103,8 +103,8 @@ export function MarqueeDemo() {
   return (
     <div className="relative  flex w-full flex-col items-center justify-center overflow-hidden bg-[#020817]">
       <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
-          <ReviewCard key={review.username} {...review} />
+        {firstRow.map((review, index) => (
+          <ReviewCard key={index} {...review} />
         ))}
       </Marquee>
 

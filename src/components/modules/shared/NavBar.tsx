@@ -1,4 +1,34 @@
+"use client";
+import { useUser } from "@/app/context/UserContext";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
+import Link from "next/link";
+import logo from "../../../app/assests/img/web.png";
+import { usePathname, useRouter } from "next/navigation";
+import { logout } from "@/app/services/auth";
+
+export const protectedRoutes = [
+  "/create-shop",
+  "/admin",
+  "/admin/:page",
+  "/user",
+  "/user/:page",
+];
+
 const NavBar = () => {
+  const { user, setIsLoading } = useUser();
+  console.log(user?.role);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogOut = () => {
+    logout();
+    setIsLoading(true);
+    if (protectedRoutes.some((route) => pathname.match(route))) {
+      router.push("/");
+    }
+  };
+
   return (
     <div className="bg-purple-500 shadow-sm sticky  top-0 z-50">
       <div className="container mx-auto  navbar ">
@@ -44,39 +74,157 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+
+          <Link href="/">
+            <Image src={logo} alt="img" width={100} height={100}></Image>
+          </Link>
         </div>
         <div className=" navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a href="/login">Login</a>
+              <Link
+                className={
+                  pathname == "/"
+                    ? "bg-gray-100/25 text-lg font-semibold"
+                    : "text-lg font-semibold"
+                }
+                href={"/"}
+              >
+                Home
+              </Link>
+            </li>
+
+            <li>
+              <Link
+                className={
+                  pathname == "/skils"
+                    ? "bg-gray-100/25 text-lg font-semibold"
+                    : "text-lg font-semibold"
+                }
+                href={"/skils"}
+              >
+                Skils
+              </Link>
             </li>
             <li>
-              <a href="/register">Ragistraton</a>
+              <Link
+                className={
+                  pathname == "/contact"
+                    ? "bg-gray-100/25 text-lg font-semibold"
+                    : "text-lg font-semibold"
+                }
+                href={"/contact"}
+              >
+                Contact
+              </Link>
             </li>
             <li>
-              <a href="/student/history">Hostory</a>
+              <Link
+                className={
+                  pathname == "/about"
+                    ? "bg-gray-100/25 text-lg font-semibold"
+                    : "text-lg font-semibold"
+                }
+                href={"/about"}
+              >
+                About
+              </Link>
             </li>
             <li>
-              <details>
-                <summary>Parent</summary>
-                <ul className="p-2">
-                  <li>
-                    <a href="/dashboard">Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
+              <Link
+                className={
+                  pathname == "/blog"
+                    ? "bg-gray-100/25 text-lg font-semibold"
+                    : "text-lg font-semibold"
+                }
+                href={"/blog"}
+              >
+                Blog
+              </Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end pb-0 mb-0">
-          <a className="btn">Button</a>
+          {user?.role ? (
+            <>
+              {user?.role == "user" && (
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar "
+                  >
+                    <div className="w-10 rounded-full border border-whtie">
+                      <Avatar>
+                        <AvatarImage
+                          src="https://i.postimg.cc/cJ2f9Sbj/Screenshot-79.png"
+                          alt="@shadcn"
+                        />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                    </div>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                  >
+                    <li>
+                      <a className="justify-between">
+                        Profilef--gg
+                        <span className="badge">New</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>Settings</a>
+                    </li>
+                    <li>
+                      <button onClick={handleLogOut}>logout</button>
+                    </li>
+                  </ul>
+                </div>
+              )}
+              {user?.role == "admin" && (
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar "
+                  >
+                    <div className="w-10 rounded-full border border-whtie">
+                      <Avatar>
+                        <AvatarImage
+                          src="https://i.postimg.cc/cJ2f9Sbj/Screenshot-79.png"
+                          alt="@shadcn"
+                        />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                    </div>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+                  >
+                    <li>
+                      <a className="justify-between">
+                        Profile
+                        <span className="badge">New</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a>Settings</a>
+                    </li>
+                    <li>
+                      <a>Logout</a>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </>
+          ) : (
+            <button className="btn ">
+              <Link href={"/login"}>Login</Link>
+            </button>
+          )}
         </div>
       </div>
     </div>

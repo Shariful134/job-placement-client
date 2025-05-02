@@ -21,30 +21,42 @@ export const registerStudent = async (userData: FieldValues) => {
   }
 };
 
-export const login = async (loginData: FieldValues) => {
+export const login = async (userData: FieldValues) => {
+  console.log(userData);
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(loginData),
+      body: JSON.stringify(userData),
     });
-    const result = res.json();
+
+    const result = await res.json();
+    console.log(result);
+
+    if (result.success) {
+      (await cookies()).set("accessToken", result.data.accessToken);
+    }
     return result;
-  } catch (error) {
-    console.log(error);
+  } catch (error: any) {
+    return Error(error);
   }
 };
-export const getCurretnUser = async () => {
-  const token = (await cookies()).get("accesstoken")?.value;
 
+export const getCurrentUser = async () => {
+  const accessToken = (await cookies()).get("accessToken")?.value;
+  console.log("accessToken: ", accessToken);
   let decodedData = null;
 
-  if (token) {
-    decodedData = jwtDecode(token);
+  if (accessToken) {
+    decodedData = await jwtDecode(accessToken);
     return decodedData;
   } else {
     return null;
   }
+};
+
+export const logout = async () => {
+  (await cookies()).delete("accessToken");
 };
