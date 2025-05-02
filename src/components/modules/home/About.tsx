@@ -4,7 +4,7 @@ import style from "./About.module.css";
 export function About() {
   return (
     <div className={`${style.iamgeSetup}`}>
-      <div className="container mx-auto px-5 text-center  h-[60vh]  size-full max-w-7xl items-center justify-center overflow-hidden pt-8">
+      <div className="container mx-auto px-5 text-center  h-[100vh] lg:h-[60vh] size-full max-w-7xl items-center justify-center overflow-hidden  ">
         <div className=" flex flex-col items-center ">
           <BoxReveal boxColor={"#AD46FF"} duration={0.5}>
             <h2 className="text-purple-400 pt-8 md:pt-15 pb-5 text-2xl md:text-5xl">
@@ -31,7 +31,7 @@ export function About() {
           </BoxReveal>
 
           <BoxReveal boxColor={"#AD46FF"} duration={0.5}>
-            <Button className="mt-[1.6rem] bg-purple-500 hover:bg-purple-600">
+            <Button className="mt-[1.6rem] bg-purple-500 hover:bg-purple-600 ">
               Explore
             </Button>
           </BoxReveal>

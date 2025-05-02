@@ -8,9 +8,9 @@ import { Download } from "lucide-react";
 const Banner = () => {
   return (
     <div className=" overflow-x-hidden text-white ">
-      <div className="relative h-[80vh] w-screen text-white ">
+      <div className="relative h-[100vh] w-screen text-white ">
         <Image src={img2} priority={true} fill alt="BannerImg"></Image>
-        <div className="absolute top-[40%]  left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center">
+        <div className="absolute top-[55%]  left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center">
           <div className="flex items-center flex-col gap-1">
             <div className="relative w-[220px] h-[220px]">
               <div className="absolute inset-0 rounded-full border-4 border-dashed border-purple-500 animate-spin"></div>
