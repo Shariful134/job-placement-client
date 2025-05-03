@@ -2,9 +2,10 @@ import { BoxReveal } from "@/components/magicui/box-reveal";
 import { Button } from "@/components/ui/button";
 import style from "./About.module.css";
 export function About() {
+  // h-[100vh] lg:h-[60vh]
   return (
-    <div className={`${style.iamgeSetup}`}>
-      <div className="container mx-auto px-5 text-center  h-[100vh] lg:h-[60vh] size-full max-w-7xl items-center justify-center overflow-hidden  ">
+    <div id="about" className={`${style.iamgeSetup}`}>
+      <div className="container mx-auto px-5 text-center  size-full max-w-7xl items-center justify-center overflow-hidden  ">
         <div className=" flex flex-col items-center ">
           <BoxReveal boxColor={"#AD46FF"} duration={0.5}>
             <h2 className="text-purple-400 pt-8 md:pt-15 pb-5 text-2xl md:text-5xl">

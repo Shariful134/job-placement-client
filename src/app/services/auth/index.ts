@@ -24,7 +24,7 @@ export const registerStudent = async (userData: FieldValues) => {
 
 export const loginUser = async (userData: FieldValues) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/login`, {
+    const res = await fetch(`http://localhost:5000/api/v1/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

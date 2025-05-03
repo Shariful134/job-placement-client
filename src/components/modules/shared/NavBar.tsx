@@ -25,7 +25,7 @@ const NavBar = () => {
   }
 
   return (
-    <div className="bg-purple-500 shadow-sm sticky  top-0 z-50">
+    <div className="bg-purple-500 shadow-sm sticky  top-0 z-50 ">
       <div className="container mx-auto  navbar ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -78,27 +78,40 @@ const NavBar = () => {
               <li>
                 <Link
                   className={
-                    pathname == "/contact"
+                    pathname == "/education"
                       ? "bg-gray-100/25 text-lg font-semibold"
                       : "text-lg font-semibold"
                   }
-                  href={"/contact"}
+                  href="/education"
                 >
-                  Contact
+                  Education
                 </Link>
               </li>
               <li>
                 <Link
                   className={
-                    pathname == "/about"
+                    pathname == "/technology"
                       ? "bg-gray-100/25 text-lg font-semibold"
                       : "text-lg font-semibold"
                   }
-                  href={"/about"}
+                  href="/technology"
                 >
-                  About
+                  Technology
                 </Link>
               </li>
+              <li>
+                <Link
+                  className={
+                    pathname == "/contacts"
+                      ? "bg-gray-100/25 text-lg font-semibold"
+                      : "text-lg font-semibold"
+                  }
+                  href={"/contacts"}
+                >
+                  Contact
+                </Link>
+              </li>
+
               <li>
                 <Link
                   className={
@@ -148,27 +161,40 @@ const NavBar = () => {
             <li>
               <Link
                 className={
-                  pathname == "/contact"
+                  pathname == "/education"
                     ? "bg-gray-100/25 text-lg font-semibold"
                     : "text-lg font-semibold"
                 }
-                href={"/contact"}
+                href="/education"
               >
-                Contact
+                Education
               </Link>
             </li>
             <li>
               <Link
                 className={
-                  pathname == "/about"
+                  pathname == "/technology"
                     ? "bg-gray-100/25 text-lg font-semibold"
                     : "text-lg font-semibold"
                 }
-                href={"/about"}
+                href="/technology"
               >
-                About
+                Technology
               </Link>
             </li>
+            <li>
+              <Link
+                className={
+                  pathname == "/contacts"
+                    ? "bg-gray-100/25 text-lg font-semibold"
+                    : "text-lg font-semibold"
+                }
+                href={"/contacts"}
+              >
+                Contact
+              </Link>
+            </li>
+
             <li>
               <Link
                 className={

@@ -7,8 +7,8 @@ import { Download } from "lucide-react";
 
 const Banner = () => {
   return (
-    <div className=" overflow-x-hidden text-white ">
-      <div className="relative h-[100vh] w-screen text-white ">
+    <div id="banner" className=" overflow-x-hidden text-white ">
+      <div className="relative h-[100vh]  text-white ">
         <Image src={img2} priority={true} fill alt="BannerImg"></Image>
         <div className="absolute top-[55%]  left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center">
           <div className="flex items-center flex-col gap-1">

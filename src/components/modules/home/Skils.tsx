@@ -1,14 +1,15 @@
 import style from "./About.module.css";
 import { AnimatedBeamMultipleOutputDemo } from "./AnimatedBeam";
 const Skils = () => {
+  // h-[100vh]
   return (
-    <div className={`${style.iamgeSetup2}`}>
-      <div className="container mx-auto px-5 h-[100vh] py-10">
+    <div id="skils" className={`${style.iamgeSetup2}`}>
+      <div className="container mx-auto px-2  py-8">
         <div className="grid grid-cols-12 justify-center items-center gap-5 ">
-          <div className=" col-span-4">
-            <div className="flex gap-15">
+          <div className=" col-span-12 mx-auto lg:col-span-4">
+            <div className="flex justify-center items-center md:items-start md:justify-start flex-col md:flex-row gap-5 md:gap-15 ">
               <div>
-                <h3 className="text-purple-400 pt-8 md:pt-5 pb-5 text-xl ">
+                <h3 className="text-purple-400 pt-8 md:pt-15 pb-5 text-2xl text-center md:text-start ">
                   Technical Skills:
                 </h3>
                 <div className="flex gap-5">
@@ -33,7 +34,7 @@ const Skils = () => {
                 </div>
               </div>
               <div>
-                <h3 className="text-purple-400 pt-8 md:pt-5 pb-5 text-xl ">
+                <h3 className="text-purple-400 pt-8 md:pt-15 pb-5 text-2xl text-center md:text-start ">
                   Soft Skils:
                 </h3>
                 <div className="flex gap-5">

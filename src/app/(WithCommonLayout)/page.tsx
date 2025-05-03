@@ -1,7 +1,9 @@
+import Education from "@/components/modules/education/Education";
 import { About } from "@/components/modules/home/About";
 import Banner from "@/components/modules/home/Banner";
 import { MarqueeDemo } from "@/components/modules/home/Marquee";
 import Skils from "@/components/modules/home/Skils";
+import ProjectsComponents from "@/components/modules/projects/ProjectsComponents";
 export default function page() {
   return (
     <div>
@@ -11,6 +13,8 @@ export default function page() {
       </div>
       <About></About>
       <Skils></Skils>
+      <ProjectsComponents />
+      <Education></Education>
     </div>
   );
 }
