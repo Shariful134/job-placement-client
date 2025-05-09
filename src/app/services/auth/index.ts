@@ -7,13 +7,16 @@ import { revalidatePath } from "next/cache";
 
 export const registerStudent = async (userData: FieldValues) => {
   try {
-    const res = await fetch(`http://localhost:5000/api/v1/auth/register`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
+    const res = await fetch(
+      `https://job-placement-server-cyan.vercel.app/api/v1/auth/register`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      }
+    );
 
     const result = await res.json();
     return result;
@@ -24,18 +27,21 @@ export const registerStudent = async (userData: FieldValues) => {
 
 export const loginUser = async (userData: FieldValues) => {
   try {
-    const res = await fetch(`http://localhost:5000/api/v1/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+    const res = await fetch(
+      `https://job-placement-server-cyan.vercel.app/api/v1/auth/login`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-      next: {
-        tags: ["user"],
-      },
+        next: {
+          tags: ["user"],
+        },
 
-      body: JSON.stringify(userData),
-    });
+        body: JSON.stringify(userData),
+      }
+    );
 
     const result = await res.json();
     console.log(result);

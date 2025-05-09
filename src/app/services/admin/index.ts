@@ -6,7 +6,7 @@ export const updateInfo = async (id: string, userData: any) => {
   const token = (await cookies()).get("accessToken")!.value;
   try {
     const res = await fetch(
-      `http://localhost:5000/api/v1/info/create-info/${id}`,
+      `https://job-placement-server-cyan.vercel.app/api/v1/info/create-info/${id}`,
 
       {
         method: "POST",
@@ -30,7 +30,7 @@ export const updateInfo = async (id: string, userData: any) => {
 export const getAllInfo = async (id: string) => {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/v1/info/create-info/${id}`,
+      `https://job-placement-server-cyan.vercel.app/api/v1/info/create-info/${id}`,
       {
         next: {
           tags: ["INFO"],

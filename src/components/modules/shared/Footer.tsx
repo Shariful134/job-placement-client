@@ -25,8 +25,9 @@ const Footer = () => {
             </div>
             <div className="w-40">
               <a
+                target="_blank"
                 className="hover:text-purple-300 text-base"
-                href="https://www.linkedin.com/in/shariful-islam-316895264/"
+                href="https://www.linkedin.com/feed/"
               >
                 https://www.linkedin.com/in/shariful-islam-316895264/
               </a>

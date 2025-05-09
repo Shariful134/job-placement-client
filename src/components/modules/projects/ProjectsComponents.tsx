@@ -66,30 +66,33 @@ const ProjectsComponents = () => {
               <p className="text-lg text-gray-300 max-w-xl">
                 <span className="text-purple-400">Live Link:</span>{" "}
                 <a
+                  target="_blank"
                   className="text-base"
-                  href=" https://book-shop-client-theta.vercel.app/"
+                  href=" https://job-placement-client-3.vercel.app/"
                 >
-                  https://book-shop-client-theta.vercel.app/
+                  https://job-placement-client-3.vercel.app/
                 </a>
               </p>
               <p className="text-lg text-gray-300  max-w-lg">
                 <span className="text-purple-400">Github Backend:</span>{" "}
                 <a
+                  target="_blank"
                   className="text-base"
-                  href="https://github.com/Shariful134/book-shopo-client-side"
+                  href=" https://github.com/Shariful134/job-placement-client-3"
                 >
-                  https://github.com/Shariful134/book-shopo-client-side
+                  https://github.com/Shariful134/job-placement-client-3
                 </a>
               </p>
 
               <p className="text-lg text-gray-300  max-w-xl">
                 <span className="text-purple-400">Github BackEnd:</span>{" "}
                 <a
+                  target="_blank"
                   className="text-base"
-                  href="https://github.com/Shariful134/book-shop-server-side"
+                  href=" https://github.com/Shariful134/job-placement-server-3"
                 >
                   {" "}
-                  https://github.com/Shariful134/book-shop-server-side
+                  https://github.com/Shariful134/job-placement-server-3
                 </a>
               </p>
               <Link href="/project2">

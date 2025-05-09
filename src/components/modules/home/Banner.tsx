@@ -49,9 +49,19 @@ const Banner = () => {
               Student of Programming Hero
             </TextAnimate>
 
-            <Button className=" mt-5 bg-purple-500 hover:bg-purple-600 cursor-pointer">
+            {/* <Button className=" mt-5 bg-purple-500 hover:bg-purple-600 cursor-pointer">
               <Download /> Download CV
-            </Button>
+            </Button> */}
+            <a
+              href="/cv/CV SHARIFUL ISLAM.pdf"
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="mt-5 bg-purple-500 hover:bg-purple-600 cursor-pointer flex gap-2 items-center">
+                <Download /> Download CV
+              </Button>
+            </a>
           </div>
         </div>
       </div>

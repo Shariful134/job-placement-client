@@ -1,6 +1,7 @@
 "use client";
 import { useUser } from "@/app/context/UserContext";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../app/assests/img/web.png";
