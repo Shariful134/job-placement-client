@@ -28,6 +28,13 @@ const Banner = () => {
             </div>
 
             <TextAnimate
+              className="text-purple-400 text-lg "
+              animation="slideLeft"
+              by="character"
+            >
+              shariful32213@gmail.com
+            </TextAnimate>
+            <TextAnimate
               className="text-purple-400 text-2xl md:text-5xl "
               animation="slideLeft"
               by="character"

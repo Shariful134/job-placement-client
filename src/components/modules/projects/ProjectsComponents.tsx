@@ -1,5 +1,5 @@
 "use client";
-import { TextAnimate } from "@/components/magicui/text-animate";
+
 import style from "./Project.module.css";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -8,15 +8,11 @@ const ProjectsComponents = () => {
     <div className={`${style.iamgeSetup} `}>
       <div className="container mx-auto px-2 pb-10 w-screen overflow-x-hidden">
         <div className="">
-          <TextAnimate
-            className="text-purple-400 text-2xl md:text-5xl py-5"
-            animation="slideLeft"
-            by="character"
-          >
+          <h2 className="text-purple-400 text-2xl md:text-5xl py-5">
             All Projects
-          </TextAnimate>
+          </h2>
 
-          <div className="flex  flex-col md:flex-row flex-wrap gap-10 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
             <div>
               <h2 className="text-purple-400 text-xl md:text-3xl pb-3 ">
                 Project-1<small className="text-sm">(FullStack)</small>
@@ -103,7 +99,7 @@ const ProjectsComponents = () => {
             </div>
           </div>
           {/* ================project-3====================== */}
-          <div className="flex flex-col md:flex-row flex-wrap gap-10 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10  mt-10">
             <div>
               <h2 className="text-purple-400 text-xl md:text-3xl pb-3 ">
                 Project-3<small className="text-sm">(BackEnd)</small>
