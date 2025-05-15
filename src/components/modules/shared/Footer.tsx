@@ -6,7 +6,7 @@ const Footer = () => {
     <div className="bg-[#020817]">
       <footer className="container mx-auto px-4 py-10">
         <div className="flex flex-col md:items-center md:justify-center text-neutral-content space-y-6">
-          <h6 className="footer-title text-center md:text-left">Contact</h6>
+          <h6 className="footer-title text-start md:text-center ">Contact</h6>
 
           <div className="text-lg text-gray-300 flex items-center gap-5">
             <span className="text-purple-400">
