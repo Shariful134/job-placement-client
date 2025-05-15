@@ -15,14 +15,14 @@ const Footer = () => {
             <span>+8801797579562, +8801762370111</span>
           </div>
 
-          <div className="text-lg text-gray-300 flex items-center gap-5">
+          <div className="text-lg text-gray-300 flex  items-center gap-5">
             <span className="text-purple-400">
               <FaLinkedin className="text-3xl" />
             </span>
             <a
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-purple-300 text-base w-64 break-words"
+              className="hover:text-purple-300 text-base text-start md:text-center w-64 break-words"
               href="https://www.linkedin.com/in/shariful-islam-316895264/"
             >
               https://www.linkedin.com/in/shariful-islam-316895264/
