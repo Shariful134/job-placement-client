@@ -1,55 +1,115 @@
-import style from "./About.module.css";
+import Image from "next/image";
+import image from "../../../app/assests/image/img-1b.jpg";
+
 import { AnimatedBeamMultipleOutputDemo } from "./AnimatedBeam";
 const Skils = () => {
   // h-[100vh]
   return (
-    <div id="skils" className={`${style.iamgeSetup2}`}>
-      <div className="container mx-auto px-2  py-8">
-        <div className="grid grid-cols-12 justify-center items-center gap-5 ">
-          <div className=" col-span-12 mx-auto lg:col-span-4">
-            <div className="flex justify-center items-center md:items-start md:justify-start flex-col md:flex-row gap-5 md:gap-15 ">
-              <div>
-                <h3 className="text-purple-400 pt-8 md:pt-15 pb-5 text-2xl text-center md:text-start ">
-                  Technical Skills:
-                </h3>
-                <div className="flex gap-5">
-                  <ol className="text-gray-300 ps-5">
-                    <li className="list-disc">Html</li>
-                    <li className="list-disc">Css</li>
-                    <li className="list-disc">Bootstrap</li>
-                    <li className="list-disc">Tailwind</li>
-                    <li className="list-disc">Sass</li>
-                    <li className="list-disc">Shadcn</li>
-                    <li className="list-disc">React</li>
-                  </ol>
-                  <ol className="text-gray-300 ps-5">
-                    <li className="list-disc">Nextjs</li>
-                    <li className="list-disc">Typescript</li>
-                    <li className="list-disc">Javascript</li>
-                    <li className="list-disc">Mongodb</li>
-                    <li className="list-disc">Mongoose</li>
-                    <li className="list-disc">Node js</li>
-                    <li className="list-disc">Expressjs</li>
-                  </ol>
-                </div>
-              </div>
-              <div>
-                <h3 className="text-purple-400 pt-8 md:pt-15 pb-5 text-2xl text-center md:text-start ">
-                  Soft Skils:
-                </h3>
-                <div className="flex gap-5">
-                  <ol className="text-gray-300 ps-5">
-                    <li className="list-disc">Communication</li>
-                    <li className="list-disc">Teamwork</li>
-                    <li className="list-disc">Time Management</li>
-                    <li className="list-disc">Self-Motivation</li>
-                    <li className="list-disc">Leadership</li>
-                  </ol>
-                </div>
+    <div
+      id="skills"
+      className="relative bg-[#0b0b0b] py-20 text-white overflow-hidden"
+    >
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src={image}
+          alt="Skills Background"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black opacity-60" />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8">
+        <h2
+          className="text-center text-purple-400 text-4xl md:text-5xl font-extrabold mb-14
+                 animate-fadeSlideUp animate-delay-100"
+        >
+          Skills & Expertise
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+          {/* Left: Skill Lists */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-16">
+            {/* Technical Skills */}
+            <div
+              className="space-y-6 animate-fadeSlideUp animate-delay-300"
+              style={{ animationFillMode: "forwards" }}
+            >
+              <h3 className="text-purple-400 text-2xl font-semibold mb-5 tracking-wide drop-shadow-lg">
+                Technical Skills
+              </h3>
+              <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-gray-300 text-base">
+                <ul className="space-y-3 list-disc list-inside">
+                  {[
+                    "HTML",
+                    "CSS",
+                    "Bootstrap",
+                    "Tailwind CSS",
+                    "SASS",
+                    "ShadCN UI",
+                    "React.js",
+                  ].map((skill) => (
+                    <li
+                      key={skill}
+                      className="list-none sm:list-disc cursor-default transform transition-transform duration-300 hover:scale-110 hover:text-purple-400"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+                <ul className="list-none sm:list-disc space-y-3  list-inside">
+                  {[
+                    "Next.js",
+                    "TypeScript",
+                    "JavaScript",
+                    "MongoDB",
+                    "Mongoose",
+                    "Node.js",
+                    "Express.js",
+                  ].map((skill) => (
+                    <li
+                      key={skill}
+                      className="list-none sm:list-disc cursor-default transform transition-transform duration-300 hover:scale-110 hover:text-purple-400"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
+
+            {/* Soft Skills */}
+            <div
+              className="animate-fadeSlideUp animate-delay-500"
+              style={{ animationFillMode: "forwards" }}
+            >
+              <h3 className="text-purple-400 text-2xl font-semibold mb-5 tracking-wide drop-shadow-lg">
+                Soft Skills
+              </h3>
+              <ul className="list-disc list-inside text-gray-300 space-y-3 text-base max-w-md mx-auto md:mx-0">
+                {[
+                  "Effective Communication",
+                  "Team Collaboration",
+                  "Time Management",
+                  "Self-Motivation",
+                  "Leadership",
+                ].map((skill) => (
+                  <li
+                    key={skill}
+                    className="list-none sm:list-disc cursor-default transform transition-transform duration-300 hover:scale-110 hover:text-purple-400"
+                  >
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <div className=" hidden lg:block col-span-8">
+
+          {/* Right: Animation or Graphic */}
+          <div className="hidden md:flex justify-center items-center animate-fadeSlideUp animate-delay-700">
             <AnimatedBeamMultipleOutputDemo />
           </div>
         </div>

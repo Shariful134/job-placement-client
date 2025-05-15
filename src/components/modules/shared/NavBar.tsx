@@ -63,15 +63,14 @@ const NavBar = () => {
                   Home
                 </Link>
               </li>
-
               <li>
                 <Link
                   className={
-                    pathname == "/skils"
+                    pathname == "/technology"
                       ? "bg-gray-100/25 text-lg font-semibold"
                       : "text-lg font-semibold"
                   }
-                  href={"/skils"}
+                  href="/technology"
                 >
                   Skils
                 </Link>
@@ -88,18 +87,7 @@ const NavBar = () => {
                   Education
                 </Link>
               </li>
-              <li>
-                <Link
-                  className={
-                    pathname == "/technology"
-                      ? "bg-gray-100/25 text-lg font-semibold"
-                      : "text-lg font-semibold"
-                  }
-                  href="/technology"
-                >
-                  Technology
-                </Link>
-              </li>
+
               <li>
                 <Link
                   className={
@@ -146,15 +134,14 @@ const NavBar = () => {
                 Home
               </Link>
             </li>
-
             <li>
               <Link
                 className={
-                  pathname == "/skils"
+                  pathname == "/technology"
                     ? "bg-gray-100/25 text-lg font-semibold"
                     : "text-lg font-semibold"
                 }
-                href={"/skils"}
+                href="/technology"
               >
                 Skils
               </Link>
@@ -171,18 +158,7 @@ const NavBar = () => {
                 Education
               </Link>
             </li>
-            <li>
-              <Link
-                className={
-                  pathname == "/technology"
-                    ? "bg-gray-100/25 text-lg font-semibold"
-                    : "text-lg font-semibold"
-                }
-                href="/technology"
-              >
-                Technology
-              </Link>
-            </li>
+
             <li>
               <Link
                 className={

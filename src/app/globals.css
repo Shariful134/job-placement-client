@@ -3,9 +3,107 @@
 @plugin "daisyui";
 
 body {
-  background-color: #020817;
+  background-color: #000000;
   overflow-x: hidden;
 }
+
+@keyframes borderGlow {
+  0% {
+    border-color: #7c3aed; /* purple-600 */
+    box-shadow: 0 0 5px #7c3aed;
+  }
+  50% {
+    border-color: #a78bfa; /* purple-400 */
+    box-shadow: 0 0 20px #a78bfa;
+  }
+  100% {
+    border-color: #7c3aed;
+    box-shadow: 0 0 5px #7c3aed;
+  }
+}
+
+/* Add this to your card */
+.animated-border {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  position: relative;
+  z-index: 0;
+}
+
+.animated-border {
+  animation: borderGlow 2s infinite;
+  border-color: #a78bfa;
+  box-shadow: 0 0 15px #a78bfa;
+  z-index: 10;
+  cursor: pointer;
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 6px 2px rgba(139, 92, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 12px 4px rgba(139, 92, 246, 1);
+  }
+}
+
+.fadeSlideUp {
+  animation-name: fadeSlideUp;
+  animation-duration: 0.7s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  opacity: 0; /* start hidden */
+}
+
+.pulseGlow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation classes */
+.animate-fadeSlideUp {
+  animation-name: fadeSlideUp;
+  animation-duration: 0.7s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+/* Animation delay utility classes */
+.animate-delay-100 {
+  animation-delay: 0.1s;
+}
+.animate-delay-300 {
+  animation-delay: 0.3s;
+}
+.animate-delay-500 {
+  animation-delay: 0.5s;
+}
+.animate-delay-700 {
+  animation-delay: 0.7s;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
