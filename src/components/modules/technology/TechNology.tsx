@@ -1,6 +1,6 @@
 const Technology = () => {
   return (
-    <div className="container mx-auto px-6 flex flex-col xl:flex-row justify-between max-w-screen-xl gap-12">
+    <div className="container mx-auto  flex flex-col xl:flex-row justify-between max-w-screen-xl gap-12">
       {/* Left Column */}
       <div className="space-y-12">
         <div
