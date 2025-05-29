@@ -78,7 +78,7 @@ const Banner = () => {
             rel="noopener noreferrer"
             className="mt-5"
           >
-            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg flex items-center gap-2">
+            <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg flex items-center cursor-pointer gap-2">
               <Download className="w-4 h-4" /> Download CV
             </Button>
           </a>

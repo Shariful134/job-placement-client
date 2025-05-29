@@ -29,7 +29,7 @@ const NavBar = () => {
     <div className="bg-purple-500 shadow-sm sticky  top-0 z-50 ">
       <div className="container mx-auto  navbar ">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown ">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,14 +49,14 @@ const NavBar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu bg-gray-900 menu-sm dropdown-content  rounded-box z-1 mt-3 w-52 p-2 shadow"
             >
               <li>
                 <Link
                   className={
                     pathname == "/"
-                      ? "bg-gray-100/25 text-lg font-semibold"
-                      : "text-lg font-semibold"
+                      ? "bg-gray-100/25 text-white sm:text-md md:text-lg font-semibold"
+                      : " font-semibold text-white sm:text-md md:text-lg"
                   }
                   href={"/"}
                 >
@@ -67,8 +67,8 @@ const NavBar = () => {
                 <Link
                   className={
                     pathname == "/technology"
-                      ? "bg-gray-100/25 text-lg font-semibold"
-                      : "text-lg font-semibold"
+                      ? "bg-gray-100/25 text-white sm:text-md md:text-lg font-semibold"
+                      : "font-semibold text-white sm:text-md md:text-lg"
                   }
                   href="/technology"
                 >
@@ -79,8 +79,8 @@ const NavBar = () => {
                 <Link
                   className={
                     pathname == "/education"
-                      ? "bg-gray-100/25 text-lg font-semibold"
-                      : "text-lg font-semibold"
+                      ? "bg-gray-100/25 text-white sm:text-md md:text-lg font-semibold"
+                      : " font-semibold text-white sm:text-md md:text-lg"
                   }
                   href="/education"
                 >
@@ -92,8 +92,8 @@ const NavBar = () => {
                 <Link
                   className={
                     pathname == "/contacts"
-                      ? "bg-gray-100/25 text-lg font-semibold"
-                      : "text-lg font-semibold"
+                      ? "bg-gray-100/25 text-white sm:text-md md:text-lg font-semibold"
+                      : " font-semibold text-white sm:text-md md:text-lg"
                   }
                   href={"/contacts"}
                 >
@@ -105,8 +105,8 @@ const NavBar = () => {
                 <Link
                   className={
                     pathname == "/blog"
-                      ? "bg-gray-100/25 text-lg font-semibold"
-                      : "text-lg font-semibold"
+                      ? "bg-gray-100/25 text-white  sm:text-md md:text-lg font-semibold"
+                      : " font-semibold text-white sm:text-md md:text-lg"
                   }
                   href={"/blog"}
                 >
@@ -126,7 +126,7 @@ const NavBar = () => {
               <Link
                 className={
                   pathname == "/"
-                    ? "bg-gray-100/25 text-lg font-semibold"
+                    ? "bg-gray-100/25 sm:text-base md:text-lg font-semibold"
                     : "text-lg font-semibold"
                 }
                 href={"/"}

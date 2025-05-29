@@ -74,7 +74,7 @@ export function LoginForm() {
   };
 
   return (
-    <div className="border-1 border-purple-500 p-10 rounded-2xl text-white">
+    <div className="border-1 border-purple-500 p-10 rounded-2xl text-white bg-gray-900">
       <h2 className="text-3xl mb-5">Please Login</h2>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
